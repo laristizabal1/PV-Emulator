@@ -1,0 +1,13 @@
+dash>=2.16.0
+dash-bootstrap-components>=1.5.0
+plotly>=5.20.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+requests>=2.31.0
+pyserial>=3.5
+pymodbus>=3.12        # servidor (comm/bridge.py) y monitor (tools/modbus_monitor.py)
+pvlib>=0.10.0      # probado con 0.15.0 (transposición POA Hay-Davies, temperature.faiman)
+pyyaml>=6.0
+pywebview>=4.4.0   # opcional — modo escritorio sin navegador
+matplotlib>=3.7    # solo para experiments/paper_figs.py (figuras del paper)

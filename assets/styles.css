@@ -1,0 +1,89 @@
+/* assets/styles.css — Dash carga este archivo automáticamente.
+   Pulido del sistema visual aprobado: tipografías, hover/transiciones,
+   restyle de dropdowns/inputs de Dash y scrollbar. Los colores base viven
+   en config/hardware.py (dict C, estilos inline); aquí va la capa de pulido
+   que los estilos inline no pueden expresar (hover, focus, transitions). */
+
+:root {
+  --pv-accent: #16a34a;
+  --pv-accent-dark: #15803d;
+  --pv-border: #dde2e9;
+  --pv-input-border: #d5dbe3;
+  --pv-bg: #eceff3;
+  --pv-text: #1b2430;
+  --pv-dim: #7c8794;
+}
+
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--pv-bg);
+  color: var(--pv-text);
+}
+
+/* Indicador "en vivo" */
+@keyframes pvpulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+/* Scrollbar acorde a la paleta */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--pv-bg); }
+::-webkit-scrollbar-thumb {
+  background: #c4ccd6; border-radius: 6px; border: 2px solid var(--pv-bg);
+}
+::-webkit-scrollbar-thumb:hover { background: #aab4c0; }
+
+/* Botones — transición + hover sutil (aplica a todos los html.Button) */
+button {
+  transition: filter .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+button:hover  { filter: brightness(0.95); }
+button:active { transform: translateY(1px); }
+
+/* Cards — sombra sutil al pasar el cursor */
+.pv-card { transition: box-shadow .18s ease, border-color .18s ease; }
+.pv-card:hover {
+  box-shadow: 0 2px 12px rgba(27, 36, 48, 0.07);
+  border-color: #d2d9e2;
+}
+
+/* Ítems de navegación del sidebar — hover */
+.pv-nav { transition: background .14s ease, color .14s ease; }
+.pv-nav:hover { background: rgba(255,255,255,0.05) !important; color: #e8edf3 !important; }
+
+/* Inputs (dcc.Input / number / text) — foco con acento */
+input {
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus {
+  outline: none;
+  border-color: var(--pv-accent) !important;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.12);
+}
+
+/* Dropdowns de Dash (react-select v1) — alinear al sistema visual */
+.Select-control {
+  border: 1px solid var(--pv-input-border) !important;
+  border-radius: 8px !important;
+  min-height: 34px !important;
+  font-size: 12px;
+}
+.is-focused:not(.is-open) > .Select-control {
+  border-color: var(--pv-accent) !important;
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.12) !important;
+}
+.Select-menu-outer {
+  border: 1px solid var(--pv-input-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(27,36,48,0.10);
+  font-size: 12px;
+}
+.VirtualizedSelectFocusedOption,
+.Select-option.is-focused { background: #ecf7f0 !important; color: var(--pv-accent-dark) !important; }
+.Select-option.is-selected { background: #f4f6f9 !important; }
+
+/* Plotly — sin scroll-zoom accidental ni borde de foco azul */
+.js-plotly-plot .plotly .modebar { display: none !important; }
+.js-plotly-plot:focus { outline: none; }

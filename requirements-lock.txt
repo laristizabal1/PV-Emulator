@@ -1,0 +1,17 @@
+# Exact environment used to generate the paper results (Python 3.13).
+# requirements.txt holds the general minimums; this file pins the versions the
+# numerical results (pvlib/scipy/numpy) were produced with, for reproducibility.
+#   pip install -r requirements-lock.txt
+dash==4.1.0
+dash-bootstrap-components==2.0.4
+plotly==6.7.0
+pandas==2.2.3
+numpy==2.2.5
+scipy==1.17.1
+requests==2.32.3
+pyserial==3.5
+pymodbus==3.12.0
+pvlib==0.15.0
+pyyaml==6.0.2
+pywebview==6.1
+matplotlib==3.10.9

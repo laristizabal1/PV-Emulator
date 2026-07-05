@@ -1,0 +1,41 @@
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ── Runtime-generated data (not versioned) ───────────────────────────────────
+# NASA POWER API cache — regenerated on demand
+data/nasa_cache/
+# Measurement sessions persisted by comm/monitor.py
+data/sessions/sesion_*.json
+# Exported figures (post_exec_plots / experiments/paper_figs.py)
+data/sessions/graficas/
+# Experiments: version only the scripts documented in the README
+# (run_experiment.py, paper_figs.py); internal research scripts/results stay out
+experiments/*
+!experiments/run_experiment.py
+!experiments/paper_figs.py
+# Benchmark results (transition/response time)
+tools/bench/bench_results/
+# I-V curve trace results (curve_trace_manual)
+tools/probe/curve_trace_results/
+# Profile replay results (profile_replay_auto)
+tools/probe/profile_replay_results/
+# Paper results/figures (generated data, kept out of the repo)
+paper_results/
+
+# ── IDE / editors ────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store

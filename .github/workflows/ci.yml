@@ -1,0 +1,17 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - run: pip install -r requirements.txt pytest
+      # Catch import/dependency breakage before an external clone hits it.
+      - run: python -c "import app"
+      # No-hardware smoke tests (pipeline + mocked run_profile).
+      - run: pytest tools/test_smoke.py -v
